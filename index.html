@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duki Fan Page</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="textoylogo">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="galeria">
+            <article class="container">
+                <div class="casillero">
+                    <a href="https://www.youtube.com/watch?v=G-H7OS_Mrc8" target="_blank" rel="noopener noreferrer"
+                        title="AMERI">
+                        <img src="ameri.jpg" alt="AMERI - Duki" />
+                        <div class="caption">Ameri</div>
+                    </a>
+                </div>
+                <div class="casillero">
+                    <a href="https://www.youtube.com/watch?v=qW6XIN5bKnY" target="_blank" rel="noopener noreferrer"
+                        title="Barro - Duki">
+                        <img src="barro.jpg" alt="Barro - Duki" />
+                        <div class="caption">Barro</div>
+                    </a>
+                </div>
+
+                <div class="casillero">
+                    <a href="https://www.youtube.com/watch?v=qC1xMCtQD_s" target="_blank" rel="noopener noreferrer"
+                        title="Imperio - Duki">
+                        <img src="imperio.jpg" alt="Imperio - Duki" />
+                        <div class="caption">Imperio</div>
+                    </a>
+                </div>
+
+                <div class="casillero">
+                    <a href="https://www.youtube.com/watch?v=-k0tp49L038" target="_blank" rel="noopener noreferrer"
+                        title="Brindis - Duki">
+                        <img src="brindis.jpg" alt="Brindis - Duki" />
+                        <div class="caption">Brindis</div>
+                    </a>
+                </div>
+
+                <div class="casillero">
+                    <a href="https://www.youtube.com/watch?v=wgvqiH7iCRo" target="_blank" rel="noopener noreferrer"
+                        title="Nueva Era - Duki">
+                        <img src="nuevaera.webp" alt="Nueva Era - Duki" />
+                        <div class="caption">Nueva Era</div>
+                    </a>
+                </div>
+                
+            </article>
+        </section>
+
+        <section id="contacto" class="formulario">
+            <h2>Contacto</h2>
+            <form action="https://formspree.io/f/{FORM_ID}" method="POST">
+                <div class="fs-field">
+                    <label for="name">Tu nombre</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
+                <div class="fs-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required />
+                    <p class="fs-description">Esto me ayudará a leer tu mensaje vía mail.</p>
+                </div>
+                <div class="fs-field">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <p class="fs-description">¿Qué te gustaría contarnos?</p>
+                </div>
+                <div class="fs-button-group">
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Fan Page de Duki. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>

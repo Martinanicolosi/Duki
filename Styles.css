@@ -1,0 +1,98 @@
+body {
+    background-image: url(fondo.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+header nav {
+    width: 100%;
+}
+
+img {
+    width: 200px;
+}
+
+header ul {
+    height: 4rem;
+    gap: 50px;
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;
+    co
+}
+
+header li {
+    list-style: none;
+}
+
+header a {
+    text-decoration: none;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #fc0000;
+}
+article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 300px auto 0 auto;
+    max-width: 1000px;
+}
+form {
+    color: white;
+}
+
+.container {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    justify-content: center;
+}
+
+.casillero {
+    background: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.casillero:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 24px rgba(255, 255, 255, 0.2);
+}
+
+.casillero a {
+    display: block;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+}
+
+.casillero img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #333;
+}
+
+.casillero .caption {
+    padding: 12px 16px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    user-select: none;
+}
+
