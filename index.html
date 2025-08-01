@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Duki Fan Page</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 
 <body>
@@ -13,8 +17,8 @@
         <nav class="textoylogo">
             <ul>
                 <li><a href="#">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Productos</a></li>
+                <li><a href="#Tienda">Productos</a></li>
+                <li><a href="#">Canciones</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -61,9 +65,107 @@
                         <div class="caption">Nueva Era</div>
                     </a>
                 </div>
-                
             </article>
         </section>
+          <!-- Productos section -->
+        <div class="container mt-4">
+    <h1 class="text-center" id="Tienda">Tienda de Ropa</h1>
+
+    <!-- Buscador y Filtros -->
+    <div class="row my-4">
+      <div class="col-md-4">
+        <input type="text" id="buscador" class="form-control" placeholder="Buscar por tipo o color">
+      </div>
+      <div class="col-md-4">
+        <select id="selectOrden" class="form-select">
+          <option value="0">Ordenar por...</option>
+          <option value="1">Mayor a menor</option>
+          <option value="2">Menor a mayor</option>
+          <option value="3">Color (A-Z)</option>
+        </select>
+      </div>
+      <div class="col-md-4 text-end">
+        <button id="botonCarrito" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carritoModal">🛒 Ver Carrito</button>
+      </div>
+    </div>
+
+    <div id="coincidencia" class="mb-3"></div>
+
+    <!-- Productos -->
+    <div id="ropa" class="row"></div>
+
+    <!-- Formulario para agregar productos  -->
+    <form id="formAgregarRopa" class="mt-5">
+      <h3>Agregar nueva prenda</h3>
+      <div class="row g-3">
+        <div class="col-md-3"><input type="text" id="tipoInput" class="form-control" placeholder="Tipo" required></div>
+        <div class="col-md-3"><input type="text" id="colorInput" class="form-control" placeholder="Color" required></div>
+        <div class="col-md-3"><input type="number" id="precioInput" class="form-control" placeholder="Precio" required></div>
+        <div class="col-md-3"><button type="button" id="guardarRopaBtn" class="btn btn-success">Guardar</button></div>
+      </div>
+    </form>
+
+
+    <!-- Modal Carrito -->
+    <div class="modal fade" id="carritoModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Carrito de Compras</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body" id="modal-bodyCarrito"></div>
+          <div class="modal-footer">
+            <p id="precioTotal" class="me-auto m-0"></p>
+            <button type="button" id="botonFinalizarCompra" class="btn btn-success">Finalizar compra</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loader -->
+    <div id="loader" class="text-center mt-5">
+      <h4 id="loaderTexto">Cargando productos...</h4>
+    </div>
+  </div>
+  <!-- Reseñas -->
+<a id="reseñas"></a>
+<section class="secciones">
+  <h2>Reseñas</h2>
+  <div class="resenias">
+    
+    <div class="card">
+      <div class="card-content">
+        <div>
+          <span class="card-nombre">Ramiro Benitez</span><br>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><br>
+          <span class="card-fecha">26/05/2025</span>
+        </div>
+        <p><strong>Me encantó la remera!</strong></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <div>
+          <span class="card-nombre">Emir Ortega</span><br>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><br>
+          <span class="card-fecha">29/05/2025</span>
+        </div>
+        <p><strong>Quiero comprarme todo</strong></p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
         <section id="contacto" class="formulario">
             <h2>Contacto</h2>
@@ -87,11 +189,41 @@
                 </div>
             </form>
         </section>
+  <!-- Clase y productos iniciales -->
+  <script>
+    class Ropa {
+      constructor(id, tipo, color, talle, precio, imagen) {
+        this.id = id;
+        this.tipo = tipo;
+        this.color = color;
+        this.talle = talle;
+        this.precio = precio;
+        this.imagen = imagen;
+        this.cantidad = 1;
+      }
+      sumarUnidad() { this.cantidad++; }
+      restarUnidad() { this.cantidad--; return this.cantidad; }
+    }
+
+    // Productos disponibles
+    const estanteria = [
+      new Ropa(1, "Remera", "Negra", "S", 50000, "Remera-negra-ameri.webp"),
+      new Ropa(2, "Remera", "Roja", "M", 40000, "Remera-roja-didi.webp"),
+      new Ropa(3, "Buzo", "Negro", "L", 65000, "buzo-negro-ameri.webp"),
+      new Ropa(4, "Sudadera", "Negra", "XL", 45000, "sudadera-negra-ameri.webp"),
+      new Ropa(5, "Remera", "Azul", "M", 40000, "remera-azul-didi.webp"),
+      new Ropa(6, "Dije", "Acero", "L", 35000, "dije-acero-ameri.webp"),
+      new Ropa(7, "Tote Bag", "Negro", "No aplica", 25000, "totebag-lona-ameri.webp"),
+      new Ropa(8, "Kit de tatuajes x24", "Negro", "Surtido", 10000, "kit-tatuajes-24.webp"),
+      new Ropa(9, "Vinilo", "Negro", "180 gramos", 70000, "vinilo-duki.webp"),
+      new Ropa(10, "Llavero", "Negro", "No aplica", 15000, "llavero-negro.webp"),
+    ];
+  </script>
+
+  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     </main>
-
-    <footer>
-        <p>&copy; 2025 Fan Page de Duki. Todos los derechos reservados.</p>
-    </footer>
+    <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-</html>
