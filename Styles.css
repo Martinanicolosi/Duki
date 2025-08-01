@@ -146,7 +146,14 @@ body {
     transform: translateY(-10px);
 }
 
-
+.resenias .card img {
+    position: absolute;
+    top: -2rem;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 20px;
+    object-fit: cover;
+}
 
 .resenias .card-content {
     margin-top: 1rem;
